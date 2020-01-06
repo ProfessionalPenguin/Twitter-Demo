@@ -1,0 +1,1 @@
+<strong><%= get_username(@user) %></strong> (<%= @user.id %>)

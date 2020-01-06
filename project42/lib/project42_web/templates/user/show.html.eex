@@ -1,0 +1,36 @@
+<h1>Twitter Profile for <%= elem(@data,0).username  %></h1>
+<input type="hidden" id="mainUser" value="<%= elem(@data,0).username  %>">
+
+
+<strong><%= elem(@data,0).username  %></strong> 
+<div><%= link "Logout", to: Routes.user_path(@conn, :index) %></div>
+
+<p id="subscribers">Followers :  <input type="text" placeholder="Add New Follower" id="newSubscriber"></input>
+<%= for subscriber <- elem(@data,1) do %>
+    <%= if subscriber.username do subscriber.username else
+    "" end %><br/>
+    <%= end %>
+    </p>
+
+
+<h2>Tweets</h2>
+<div id="feed">
+</div>
+
+<form id="tweet-form">
+  <!--<input type="text" placeholder="Username" id="user-name"></input>-->
+  <textarea placeholder="Your tweet" id="user-tweet"></textarea>
+  <button type="submit">Post</button>
+
+</form>
+    
+
+
+<h1>Search by Hashtags</h1>
+<input type="text" placeholder="Enter Hashtag" id="searchHashTag"></input>
+<div id="hashTagResults"></div>
+
+
+<h1>Search by Mentions</h1>
+<input type="text" placeholder="Enter Mention" id="searchMentions"></input>
+<div id="mentionResults"></div>
